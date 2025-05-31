@@ -174,11 +174,22 @@ export const verifyemail = async (req, res) => {
   }
 };
 
-export const isAuthenticated = (req, res) => {
-  try {
+export const isAuthenticated = async (req, res) => {
+   try {
+    const token = req.cookies.token;
+    if (!token) {
+      return res.json({ success: false, message: "No token, not authenticated" });
+    }
+    const decoded = Jwt.verify(token, process.env.SECRETKEY);
+    // Optionally, fetch user info to send to frontend
+    const user = await usermodel.findById(decoded.id).select("-password");
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
     return res.json({
       success: true,
       message: "User Authenticated Successfully",
+      user, // send user info to frontend
     });
   } catch (error) {
     return res.json({ success: false, message: "User is Not Authenticated" });
