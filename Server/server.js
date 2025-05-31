@@ -12,7 +12,7 @@ await Connectdb();
 const PORT = process.env.PORT || 3500;
 
 
-const allowpages=[ "https://mern-auth-frontend-ros0.onrender.com"]
+const allowpages=[ "https://mern-auth-sigma-ashen.vercel.app"]
 
 
 app.use(express.json());
