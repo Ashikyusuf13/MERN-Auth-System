@@ -12,8 +12,7 @@ await Connectdb();
 const PORT = process.env.PORT || 3500;
 
 
-const allowpages=[ "https://mern-auth-frontend-ros0.onrender.com",
-  "http://localhost:5173"]
+const allowpages=[ "https://mern-auth-frontend-ros0.onrender.com"]
 
 
 app.use(express.json());
@@ -25,7 +24,7 @@ app.use("/user/auth", authrouter);
 app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("API is Working");
+  res.json({success:true,message:"Server Connected"});
 });
 
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
