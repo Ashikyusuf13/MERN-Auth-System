@@ -18,18 +18,8 @@ const allowpages=[ "https://mern-auth-frontend-ros0.onrender.com",
 
 app.use(express.json());
 app.use(cookieparser());
-app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    if (allowpages.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
-}));
+app.use(cors({ origin: allowpages, credentials: true }))
+
 
 app.use("/user/auth", authrouter);
 app.use("/api/user", userRouter);
