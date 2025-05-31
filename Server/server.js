@@ -11,7 +11,7 @@ dotenv.config();
 await Connectdb();
 const PORT = process.env.PORT || 3500;
 
-const allowpages=["https://mern-auth-frontend-ros0.onrender.com","https://mern-lock.netlify.app/"]
+const allowpages=["https://mern-auth-frontend-ros0.onrender.com","https://mern-lock.netlify.app"]
 
 app.use(express.json());
 app.use(cookieparser());
