@@ -11,8 +11,10 @@ dotenv.config();
 await Connectdb();
 const PORT = process.env.PORT || 3500;
 
+
 const allowpages=[ "https://mern-auth-frontend-ros0.onrender.com",
   "http://localhost:5173"]
+
 
 app.use(express.json());
 app.use(cookieparser());
