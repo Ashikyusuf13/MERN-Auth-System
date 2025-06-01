@@ -76,7 +76,7 @@ const Navbar = () => {
           <div>{userData.name[0].toUpperCase()}</div>
 
           {showDropdown && (
-            <div className="hidden group-hover:block absolute top-8 right-0 bg-gray-800 w-30 text-indigo-300 rounded-lg z-10  ">
+            <div className="absolute top-8 right-0 bg-gray-800 w-30 text-indigo-300 rounded-lg z-10">
               <li className="list-none m-0 p-2 gap-2 cursor-pointer ">
                 {!userData.isAccountverified && (
                   <ul
