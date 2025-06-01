@@ -70,11 +70,10 @@ const Navbar = () => {
           ref={dropdownRef}
           onMouseEnter={() => setShowDropdown(true)}
           onMouseLeave={() => setShowDropdown(false)}
+          onClick={() => setShowDropdown((prev) => !prev)}
           style={{ cursor: "pointer" }}
         >
-          <div onClick={() => setShowDropdown((prev) => !prev)}>
-            {userData.name[0].toUpperCase()}
-          </div>
+          <div>{userData.name[0].toUpperCase()}</div>
 
           {showDropdown && (
             <div className="hidden group-hover:block absolute top-8 right-0 bg-gray-800 w-30 text-indigo-300 rounded-lg z-10  ">
