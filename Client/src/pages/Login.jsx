@@ -13,6 +13,7 @@ const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,16 +95,68 @@ const Login = () => {
             />
           </div>
 
-          <div className="flex flex-col mb-4 border border-blue-200 rounded-full p-2 mt-5">
-            <img src={assets.lock_icon} alt="" className="w-4 h-4 absolute" />
+          <div className="flex flex-col mb-4 border border-blue-200 rounded-full p-2 mt-5 relative">
+            <img
+              src={assets.lock_icon}
+              alt=""
+              className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2"
+            />
             <input
               required
               onChange={(e) => setPassword(e.target.value)}
               value={password}
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="px-7 outline-none"
+              className="px-7 outline-none w-full"
             />
+            <span
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? (
+                // Eye-off SVG (hide password)
+                <svg
+                  xmlns="https://png.pngtree.com/png-clipart/20220602/original/pngtree-closed-eye-icon-color-flat-png-image_7872276.png"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="#2563eb"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.875 18.825A10.05 10.05 0 0112 19c-5.523 0-10-4.477-10-10 0-1.657.403-3.22 1.125-4.575M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 3l18 18"
+                  />
+                </svg>
+              ) : (
+                // Eye SVG (show password)
+                <svg
+                  xmlns="https://static.vecteezy.com/system/resources/thumbnails/014/569/578/small_2x/eye-icon-simple-flat-eye-design-vision-care-concept-wear-glasses-for-a-clear-vision-png.png"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="#2563eb"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              )}
+            </span>
           </div>
           {state === "sign up" ? null : (
             <p
