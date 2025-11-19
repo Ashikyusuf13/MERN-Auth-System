@@ -9,9 +9,9 @@ const Header = () => {
 
   const { userData } = useContext(AppContent);
   return (
-    <div className="flex flex-col items-center mt-20 text-center ">
+    <div className="flex flex-col items-center mt-20 text-center pt-8 md:pt-0">
       <img
-        className="w-36 h-36 rounded-full border border-sky-200 hover:border-sky-800 "
+        className="w-46 h-46 rounded-full border border-sky-400 p-2 hover:border-sky-800 "
         src={assets.robot_img}
         alt=""
       />
@@ -26,7 +26,7 @@ const Header = () => {
       </p>
       <button
         onClick={() => navigate("/welcome")}
-        className="px-6 cursor-pointer py-2 border border-gray-900 hover:bg-gray-500 rounded-full"
+        className="px-6 cursor-pointer py-2 border border-gray-900 hover:bg-blue-400 hover:text-white transition500 rounded-full"
       >
         Get Started
       </button>

@@ -55,7 +55,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen  bg-gradient-to-br from-blue-200 to-purple-400">
+    <div className="flex justify-center items-center min-h-screen  bg-gradient-to-br from-blue-500 to-transparent pt-15">
       <img
         onClick={() => navigate("/")}
         src={assets.logo}

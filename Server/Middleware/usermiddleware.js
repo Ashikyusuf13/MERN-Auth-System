@@ -4,7 +4,7 @@ const userauth = (req, res, next) => {
   const { token } = req.cookies;
 
   if (!token) {
-    return res.json({ success: false, message: "User Not Authenticated" });
+    return res.json({ success: false, message: "Login to continue" });
   }
   try {
     const tokenDecode = jwt.verify(token, process.env.SECRETKEY);

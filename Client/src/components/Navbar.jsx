@@ -56,7 +56,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center w-full absolute top-0 p-4">
+    <div className="flex justify-between items-center w-full absolute top-0 px-5">
       <img
         src={assets.logo}
         onClick={() => navigate("/")}
@@ -99,7 +99,7 @@ const Navbar = () => {
       ) : (
         <button
           onClick={() => navigate("/login")}
-          className="flex items-center border border-gray-800 rounded-full px-6 py-2 hover:bg-gray-400 gap-2 transition-all mr-4 cursor-pointer "
+          className="flex items-center border border-gray-800 rounded-full px-6 py-2 outline-none hover:text-white hover:bg-blue-400 gap-2 transition-all mr-4 cursor-pointer "
         >
           Login <img className="aspect-square" src={assets.arrow_icon} />
         </button>
